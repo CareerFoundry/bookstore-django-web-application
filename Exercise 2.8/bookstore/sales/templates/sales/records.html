@@ -1,0 +1,21 @@
+<h1> Search for sales records</h1>
+
+<hr>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form}}
+    <button type="submit" >search</button>
+    
+
+</form>
+
+
+<br>
+
+{% if sales_df %}
+    {{sales_df|safe}}
+    <br>
+    <img src="data:image/png;base64, {{chart|safe}}">
+{% else %}
+    <h3> no data</h3>
+{% endif %}

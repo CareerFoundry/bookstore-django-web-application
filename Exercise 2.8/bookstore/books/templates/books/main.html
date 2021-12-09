@@ -1,0 +1,24 @@
+<h1>Books' list</h1>
+<a href ="{%url 'logout' %}">  Logout  </a>
+
+
+<table border="1" cellpadding="5" cellspacing = "5">
+
+    <tr>
+        <td>Books' Titles</td>
+        <td>Books' Images</td>
+
+    </tr>
+    {% for object in object_list %}     {% comment%}  access records from model (object_list) one at a time using for loop  {% endcomment%}
+
+    <tr>
+        <td><a href ="{{object.get_absolute_url}}">  
+        {{object.name}}     
+        </a></td>
+        <td><img src="{{object.pic.url}}" width="150" height="200" /></td>
+        {% comment%}  “object” refers to one record in the list  {% endcomment%}
+
+    </tr>
+    {% endfor %}
+
+</table>
